@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Komik Online</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-12">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <ul class="navbar-nav mr-auto">
+                    <li>
+                        <h1 style="color:white">Komik Online - 32180009</h1>
+                    </li>
+                </ul>
+                <a href="http://localhost:5000/login"
+                    class="btn btn-success float-right border border-dark" style="margin-bottom: 10px">Login</a>
+            </nav>
+            <br>
+        </div>
+
+        <div class="col-sm-2"></div>
+        <div class="col-sm-6">
+            <table class="table table-striped" border="1">
+                <thead class="thead-dark text-center">
+                    <tr style="font-size: 20px">
+                    <th width="50">ID</th>
+                    <th width="40">Image</th>
+                    <th width="200">Judul</th>
+                    <th width="60">Buy</th>
+                </tr>
+                </thead>
+
+
+                {% for baris in datak %}
+                <tr class="text-center" style="font-size: 20px">
+                    <td style="padding-top: 55px">{{ baris.0 }}</td>
+                    <td ><img style="width: 50px; height: 55px"
+                              src= {{url_for('static', filename = 'uploads/' + baris.4)}}></td>
+                    <td style="padding-top: 55px">{{ baris.1 }}</td>
+                    <td style="padding-top: 55px">
+                        <a href="http://localhost:5000/buy/{{baris.0}}"
+                            class="btn btn-info border border-dark">Buy</a></td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+        <div class="col-sm-2">
+            <table class="table table-striped" border="1">
+            <thead class="thead-dark text-center">
+                <tr style="font-size: 20px">
+                <th width="50">ID</th>
+                <th width="40">Stock</th>
+            </tr>
+            </thead>
+
+
+            {% for baris in dataa %}
+            <tr class="text-center" style="font-size: 20px">
+                <td style="padding-top: 63.5px">{{ baris.0 }}</td>
+                <td style="padding-top: 63.5px">{{ baris.1 }}</td>
+            </tr>
+            {%endfor%}
+        </table>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</body>
+</html>

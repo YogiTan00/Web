@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SingUp</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-12">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <ul class="navbar-nav mr-auto">
+                    <li>
+                        <h1 style="color:white">Komik Online - 32180009</h1>
+                    </li>
+                </ul>
+                <a href="http://localhost:5000/login"
+           class="btn btn-success float-right border border-dark" style="margin-bottom: 10px">Login</a>
+            </nav>
+            <br>
+        </div>
+
+
+            <div class="col-md-4"></div>
+            <div class="col-md-4 border border-dark" style="margin-top: 50px; background-color: #D3D3D3;
+                padding-top: 25px; padding-bottom: 25px">
+                <a href="http://localhost:5000/"
+                   class="btn btn-success float-right border border-dark" style="margin-bottom: 10px">Back</a>
+                <h2 class="text-center">SingUp</h2>
+                <hr style="border: 1px solid black">
+
+
+                <form action="{{ url_for('signup') }}" method="post" enctype="multipart/form-data" style="font-size: 18px">
+                    E-mail:<br />
+                    <input type="text" class="form-control" name="email" size="30" maxlength="30"><br />
+                    Username :<br />
+                    <input type="text" class="form-control" name="username" size="30" maxlength="30" /><br />
+                    Nama:<br />
+                    <input type="text" class="form-control" name="nama" size="50" maxlength="50" /><br />
+                    Password :<br />
+                    <input type="text" class="form-control" name="password" size="100" maxlength="100"><br />
+                    Alamat :<br />
+                    <input type="text" class="form-control" name="alamat" size="90" maxlength="90"><br />
+                    No.Telp :<br />
+                    <input type="text" class="form-control" name="notelp" size="12" maxlength="12"><br />
+                    <button class="btn btn-success float-right" type="submit" value="Simpan">SignUp</button>
+                </form>
+            </div>
+        <div class="col-md-4"></div>
+    </div>
+</body>
+</html>
