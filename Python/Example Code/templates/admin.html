@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Komik</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-12">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <ul class="navbar-nav mr-auto">
+                    <h1 style="color:white">Komik Online - 32180009</h1>
+                </ul>
+                <ul>
+                    <a href="http://localhost:5000/profil"
+                      style="color:white">{{nama}}&nbsp;</a>
+                </ul>
+                    <a href="http://localhost:5000/logout"
+                   class="btn btn-success float-right border border-dark" style="margin-bottom: 10px">Logout</a>
+            </nav>
+            <br>
+        </div>
+
+        <div class="col-sm-1"></div>
+        <div class="col-sm-7">
+        <a href="http://localhost:5000/tambah"
+           class="btn btn-success float-right border border-dark" style="margin-bottom: 10px">Tambah Data</a>
+
+        <table class="table table-striped" border="1">
+            <thead class="thead-dark text-center">
+                <tr style="font-size: 20px">
+                <th width="60">ID</th>
+                <th width="300">Judul</th>
+                <th width="100">Mangaka</th>
+                <th width="150">Penerbit</th>
+                <th width="130">Gambar</th>
+                <th width="80">Ubah</th>
+                <th width="80">Hapus</th>
+            </tr>
+            </thead>
+
+
+            {% for baris in datak %}
+            <tr class="text-center" style="font-size: 20px">
+                <td style="padding-top: 55px">{{ baris.0 }}</td>
+                <td style="padding-top: 55px">{{ baris.1 }}</td>
+                <td style="padding-top: 55px">{{ baris.2 }}</td>
+                <td style="padding-top: 55px">{{ baris.3 }}</td>
+                <td ><img style="width: 50px; height: 55px"
+                          src= {{url_for('static', filename = 'uploads/' + baris.4)}}></td>
+                <td style="padding-top: 55px">
+                    <a href="http://localhost:5000/ubah/{{baris.0}}"
+                        class="btn btn-info border border-dark">Ubah</a></td>
+                <td style="padding-top: 55px">
+                    <a href="http://localhost:5000/hapus/{{baris.0}}"
+                        class="btn btn-danger border border-dark">Hapus</a></td>
+            </tr>
+            {%endfor%}
+        </table>
+        </div>
+        <div class="col-sm-3">
+            <br><br>
+            <table class="table table-striped" border="1">
+            <thead class="thead-dark text-center">
+                <tr style="font-size: 20px">
+                <th width="50">ID</th>
+                <th width="40">Stock</th>
+                <th width="80">Ubah</th>
+            </tr>
+            </thead>
+
+
+            {% for baris in dataa %}
+            <tr class="text-center" style="font-size: 20px">
+                <td style="padding-top: 63.5px">{{ baris.0 }}</td>
+                <td style="padding-top: 63.5px">{{ baris.1 }}</td>
+                <td style="padding-top: 55px">
+                    <a href="http://localhost:5000/ubahstock/{{baris.0}}"
+                        class="btn btn-info border border-dark">Ubah</a></td>
+            </tr>
+            {%endfor%}
+        </table>
+        </div>
+    </div>
+
+</body>
+</html>
